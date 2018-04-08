@@ -1,12 +1,5 @@
 package br.com.yahoo.mau_mss.drawdown.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import br.com.yahoo.mau_mss.drawdown.Drawdown;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -16,7 +9,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static org.junit.Assert.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RunWith(Parameterized.class)
 public class DrawdownServiceTest {
@@ -48,7 +44,9 @@ public class DrawdownServiceTest {
 	public static Collection<String[]> addedPassword() {
 		return Arrays.asList(new String[][] {
 				{ "500., 750., 400., 600., 350., 800.", "0.5333" },
-				{ "500.", "0.0" }
+				{ "500.", "0.0" },
+				{ "100., 100.", "0.0" },
+				{ "10000., 10530., 10536., 10563.39", "0.0"}
 		});
 
 	}

@@ -91,3 +91,9 @@ nbactions.xml
 
 
 # End of https://www.gitignore.io/api/maven,netbeans,intellij
+drawdown.iml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/compiler.xml
+.idea/encodings.xml
