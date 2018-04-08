@@ -1,12 +1,11 @@
 package br.com.yahoo.mau_mss.drawdown.service;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.math.NumberUtils;
 
 public class DrawdownService {
 
@@ -26,6 +25,26 @@ public class DrawdownService {
 		return result;
 	}
 
+  /**
+   * Calcula o drawdown de uma lista de valores percentuais
+   * @param values - A lista de valorizações percentuais alterada no tempo
+   * @return - O máximo drawdown
+   */
+	public double calcMddPerc(List<Double> values) {
+		List<Double> decimalValues = new ArrayList<>();
+		decimalValues.add(10000.00);
+		int i = 0;
+		for (double v : values) {
+			decimalValues.add(decimalValues.get(i++) * (1 + v / 100));
+		}
+		return calcMdd(decimalValues);
+	}
+
+  /**
+   * Calcula o drawdown de uma lista de valores decimais
+   * @param values - A lista de valores decimais alterada no tempo
+   * @return - O máximo drawdown
+   */
 	public double calcMdd(List<Double> values) {
 		Double maiorAltaAntesMaiorQueda = values.get(0);
 		Double maiorQueda = values.get(0);
